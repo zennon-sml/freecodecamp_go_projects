@@ -27,4 +27,14 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("error while it was parsing")
 	}
 	bookDetails, _ := models.GetById(ID)
+	res, _ := json.Marshal(bookDetails)
+	w.Header().Set("Content-Type", "pkglication/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
+}
+
+func CreateBook(w http.ResponseWriter, r *http.Request) {
+	CreateBook := &models.Book{}
+	utils.ParseBody(r, CreateBook)
+	b := CreateBook.CreateBook()
 }
