@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	db *gorm.DB
+	db *gorm.DB// set db to a variable of typei gorm
 )
 
 func Connect() {
-	d, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
+	d, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})// opens a connection with the database 
 	if err != nil {
 		panic(err)
 	}
@@ -18,5 +18,5 @@ func Connect() {
 }
 
 func GetDB() *gorm.DB {
-	return db
+	return db // return the database
 }

@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	r := mux.NewRouter()
-	routes.RegisterBookStoreRoutes(r)
-	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":8000", r))
+	r := mux.NewRouter() //creates my router
+	routes.RegisterBookStoreRoutes(r) //define all the routes for my router
+	http.Handle("/", r) //TODO what it does?
+	log.Fatal(http.ListenAndServe(":8000", r)) //start the server
 }
